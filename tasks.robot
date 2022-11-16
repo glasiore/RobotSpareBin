@@ -5,7 +5,7 @@ Documentation       Orders robots from RobotSpareBin Industries Inc.
 ...                 Embeds the screenshot of the robot to the PDF receipt.
 ...                 Creates ZIP archive of the receipts and the images.
 
-Library             RPA.Browser.Selenium    auto_close=${FALSE}
+Library             RPA.Browser.Selenium    auto_close=${TRUE}
 Library             RPA.Dialogs
 Library             RPA.HTTP
 Library             RPA.Tables
@@ -113,5 +113,5 @@ Go to order another robot
     Click Button When Visible    id:order-another
 
 Create a ZIP file of the receipts
-    Archive Folder With Zip    ${OUTPUT_DIR}${/}Receipts    ReceiptsZip.zip    include=*.pdf
+    Archive Folder With Zip    ${OUTPUT_DIR}${/}Receipts    ${OUTPUT_DIR}${/}ReceiptsZip.zip    include=*.pdf
     Remove Directory    ${OUTPUT_DIR}${/}Receipts    recursive=${True}
